@@ -1,0 +1,41 @@
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+import pandas as pd
+import matplotlib.pyplot as plt
+from faker import Faker
+import random
+
+# Spotify API credentials
+client_id = 'b1e3417c564544a3bdae5eff69d582a0'
+client_secret = 'fe1ac3b6c3c148d1ad1338bab6dcd0c9'
+
+# Set up authentication
+client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
+spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+
+# Faker library for generating fake data
+fake = Faker()
+
+# Example 1: Top American Artists
+def top_american_artists_visualization():
+    # Generate random American artist data
+    num_artists = 10
+    artist_names = [fake.name() for _ in range(num_artists)]
+    popularity = [random.randint(1, 100) for _ in range(num_artists)]
+
+    # Create a dataframe
+    df = pd.DataFrame({'Artist': artist_names, 'Popularity': popularity})
+
+    # Save data to CSV
+    df.to_csv('american_artists.csv', index=False)
+
+    # Create a bar chart
+    plt.bar(df['Artist'], df['Popularity'])
+    plt.xlabel('Artists')
+    plt.ylabel('Popularity')
+    plt.title('Top American Artists')
+    plt.xticks(rotation=45)
+    plt.show()
+
+# Call the functions
+top_american_artists_visualization()
