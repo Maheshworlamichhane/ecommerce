@@ -5,4 +5,7 @@ Required libraries
 To run the application, make sure all the dependencies are installed correctly
 
 Screenshots of the UI
-![Uploading image.png…]()
+
+
+![image](https://github.com/Maheshworlamichhane/ecommerce/assets/101940411/2c6817ae-dd8b-40ea-9da0-75fb5e5073cf)
+
